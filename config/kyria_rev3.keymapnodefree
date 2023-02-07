@@ -1,0 +1,252 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+
+//jbsoum add - macros from here: https://zmk.dev/docs/behaviors/hold-tap
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+#define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
+
+#include "../zmk-nodefree-config/helper.h"
+#include "../config/keypos_kyria_rev3.h"
+
+/* layer and key shortcuts */
+
+#define ___ &trans
+
+#define DEF 0  // layer shortcuts, must match order in which they are defined below
+#define NUM 1
+#define NAV 2
+
+/* custom behaviors */
+
+//jbsoum add - autoshift macro from here: https://zmk.dev/docs/behaviors/hold-tap
+ZMK_BEHAVIOR(as, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp>, <&kp>;
+)
+//jbsoum add - momentary layer when held, toggle layer when tapped, from here: https://zmk.dev/docs/behaviors/hold-tap
+ZMK_BEHAVIOR(mo_tog, hold_tap,
+     flavor = "hold-preferred";
+     tapping-term-ms = <200>;
+     bindings = <&mo>, <&tog>;
+)
+//jbsoum add - crosshand only modifiers, from here: https://zmk.dev/docs/behaviors/hold-tap
+ZMK_BEHAVIOR(lh_pht, hold_tap,
+     flavor = "tap-unless-interrupted";
+     tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+     quick-tap-ms = <200>;
+     bindings = <&kp>, <&kp>;
+     hold-trigger-key-positions = <RM0 RM1 RM2 RM3 RM4 RM5>;    // <---[[right-hand keys]]
+)
+ZMK_BEHAVIOR(rh_pht, hold_tap,
+     flavor = "tap-unless-interrupted";
+     tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+     quick-tap-ms = <200>;
+     bindings = <&kp>, <&kp>;
+     hold-trigger-key-positions = <LM5 LM4 LM3 LM2 LM1 LM0>;    // <---[[left-hand keys]]
+)
+// undo fix for VBA (use Alt, E, R, Enter instead, works for most office products) (jbsoum add)
+ZMK_BEHAVIOR(alt_redo, macro,
+     bindings
+          = <&macro_tap &kp LALT>
+          , <&macro_tap &kp E>
+          , <&macro_tap &kp R>
+          , <&macro_tap &kp ENTER> 
+          ;
+)
+// cycle power and lighting
+ZMK_BEHAVIOR(pow_tap, macro,
+     bindings
+          = <&macro_tap &rgb_ug RGB_TOG>
+          , <&macro_tap &rgb_ug BL_TOG>
+          ;
+)
+
+//jbsoum add - power key
+ZMK_BEHAVIOR(pow, mod_morph,
+     bindings = <&pow_tap>, <&ext_power EP_TOG>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// custom shift keys - typing layer (jbsoum add)
+ZMK_BEHAVIOR(com_qmk, mod_morph,
+     bindings = <&kp COMMA>, <&kp QMARK>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(per_exc, mod_morph,
+     bindings = <&kp PERIOD>, <&kp EXCL>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(amp_at, mod_morph,
+     bindings = <&kp AMP>, <&kp AT>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(fsh_min, mod_morph,
+     bindings = <&kp FSLH>, <&kp MINUS>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(bsh_und, mod_morph,
+     bindings = <&kp BSLH>, <&kp UNDER>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(hsh_tld, mod_morph,
+     bindings = <&kp HASH>, <&kp TILDE>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(dll_pct, mod_morph,
+     bindings = <&kp DOLLAR>, <&kp PERCENT>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// custom shift keys - number layer (jbsoum add)
+ZMK_BEHAVIOR(pls_gt, mod_morph,
+     bindings = <&kp PLUS>, <&kp GREATER_THAN>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(min_lt, mod_morph,
+     bindings = <&kp MINUS>, <&kp LESS_THAN>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(mlt_pwr, mod_morph,
+     bindings = <&kp STAR>, <&kp CARET>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(div_dll, mod_morph,
+     bindings = <&kp FSLH>, <&kp DOLLAR>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(eql_pct, mod_morph,
+     bindings = <&kp EQUAL>, <&kp PERCENT>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// custom shift keys - actions (jbsoum add)
+ZMK_BEHAVIOR(hme_end, mod_morph,
+     bindings = <&kp HOME>, <&kp END>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(bsp_del, mod_morph,
+     bindings = <&kp BACKSPACE>, <&kp DELETE>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(psr_ins, mod_morph,
+     bindings = <&kp PRINTSCREEN>, <&kp INSERT>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(tab_cap, mod_morph,
+     bindings = <&kp TAB>, <&kp CAPSLOCK>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ent_esc, mod_morph,
+     bindings = <&kp ENTER>, <&kp ESCAPE>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// layer buttons (jbsoum add)
+ZMK_BEHAVIOR(ly_def, macro,
+     bindings 
+          = <&to DEF>
+          , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
+          ;
+)
+ZMK_BEHAVIOR(ly_num, macro,
+     bindings 
+          = <&macro_press MO_TOG(NUM)>
+          , <&rgb_ug RGB_COLOR_HSB(110,25,100)>
+          , <&macro_release MO_TOG(NUM)>
+          , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
+          ;
+)
+ZMK_BEHAVIOR(ly_nav, macro,
+     bindings 
+          = <&to NAV>
+          , <&rgb_ug RGB_COLOR_HSB(170,25,100)>
+          ;
+)
+ZMK_BEHAVIOR(layer, mod_morph,
+     bindings = <&ly_num>, <&ly_nav>;
+     mods = <(MOD_CTRL|MOD_CTRL)>;
+)
+
+
+/* homerow mods */ // from nodefree config
+
+// tap: sticky shift | double tap: capsword
+ZMK_BEHAVIOR(ss_cw, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&sk LSHFT>, <&caps_word>;
+)
+
+// tap: backspace | shift + tap: delete | hold: num layer
+//ZMK_BEHAVIOR(bs_del_num, mod_morph,
+//    bindings = <&lt NUM BSPC>, <&kp DEL>;
+//    mods = <(MOD_LSFT|MOD_RSFT)>;
+//)
+
+// windows sleep macro
+ZMK_BEHAVIOR(win_sleep, macro,
+    wait-ms = <100>;
+    tap-ms = <5>;
+    bindings = <&kp LG(X) &kp U &kp S>;
+)
+
+// euro sign
+//ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+
+// replace a/o/u/s with German umlauts when NAV and NUM are held jointly
+//ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
+
+// combos
+#undef COMBO_TERM
+#define COMBO_TERM 40  // timeout of 40ms (default is 30ms if omitted)
+ZMK_COMBO(combo_sleep,  &win_sleep, RT3 RT4, NAV)  // custom sleep macro, only active on NAV layer
+ZMK_COMBO(combo_copy,   &kp LC(C),  LB2 LB3, ALL)  // Ctrl + C, active on all zlayers
+ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all layers
+
+/* keymap */
+
+ZMK_LAYER(default_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+         AS(pow)       AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      AS(bsh_und)
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+         AS(dll_pct)   AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+         AS(hsh_tld)   AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &kp NONE      AS(psr_ins)       &kp RGUI       &kp NONE     AS(K)         AS(H)         AS(com_qmk)   AS(per_exc)   AS(fsh_min)   AS(amp_at)
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                   &layer        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         AS(ent_esc)   &kp RCTRL     &kp RALT      AS(tab_cap)   AS(bsp_del)
+     //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+     , <&inc_dec_kp LC(TAB) LS(LC(TAB)) &inc_dec_kp alt_redo LC(Z)>;
+)
+
+ZMK_LAYER(num_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+         AS(pow)       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         AS(mlt_pwr)   AS(fsh_dll)
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+         AS(fsh_bsh)   AS(lt_gt)     AS(lbc_rbc)   AS(lbt_rbt)   AS(lpr_rpr)   AS(grv_pip)                                                               &kp F12       &kp 4         &kp 5         &kp 6         AS(pls_gt)    AS(eql_pct)
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+         AS(hsh_tld)   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp NONE      AS(psr_ins)       &kp RGUI      &kp NONE      AS(K)         &kp 1         &kp 2         &kp 3         AS(min_lt)    PERIOD
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         AS(ent_esc)   &kp RCTRL     &kp RALT      AS(tab_cap)   AS(bsp_del)
+     //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+     , <&inc_dec_kp LC(TAB) LS(LC(TAB)) &inc_dec_kp alt_redo LC(Z)>;  
+)
+
+ZMK_LAYER(nav_layer,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+         AS(pow)       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+                       &kp Q         &kp A         &kp W         &kp D         &kp E                                                                     &kp R         &kp LEFT      &kp UP        &kp RIGHT     &kp F         &kp F
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                                   &kp S         &kp Z         &kp X         &kp NONE      AS(psr_ins)       &kp RGUI      &kp NONE      &kp C         &kp V         &kp DOWN
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         AS(ent_esc)   &kp RCTRL     &kp RALT      AS(tab_cap)   AS(bsp_del)
+     //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+     , <&inc_dec_kp LC(TAB) LS(LC(TAB)) &inc_dec_kp alt_redo LC(Z)>;  
+)
+
+
