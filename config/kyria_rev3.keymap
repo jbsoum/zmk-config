@@ -213,39 +213,39 @@ ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all la
 
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         B_AS(&pow)       AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(&bsh_und)
+         B_AS(pow)       AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(&dll_pct)   AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
+         B_AS(dll_pct)   AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(&hsh_tld)   AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &kp NONE      B_AS(&psr_ins)      &kp RGUI       &kp NONE      AS(K)         AS(H)         B_AS(&com_qmk)   B_AS(&per_exc)   B_AS(&fsh_min)   B_AS(&amp_at)
+         B_AS(hsh_tld)   AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &kp NONE      B_AS(psr_ins)      &kp RGUI       &kp NONE      AS(K)         AS(H)         B_AS(com_qmk)   B_AS(per_exc)   B_AS(fsh_min)   B_AS(amp_at)
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &layer        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         AS(&ent_esc)   &kp RCTRL     &kp RALT      B_AS(&tab_cap)   B_AS(&bsp_del)
+                                                   &layer        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc)   &kp RCTRL     &kp RALT      B_AS(tab_cap)   B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
     //, <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 )
 
 ZMK_LAYER(num_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         B_AS(&pow)       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         B_AS(&mlt_pwr)   B_AS(&fsh_dll)
+         B_AS(pow)       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         B_AS(mlt_pwr)   B_AS(fsh_dll)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(&fsh_bsh)   B_AS(&lt_gt)     B_AS(&lbc_rbc)   B_AS(&lbt_rbt)   B_AS(&lpr_rpr)   B_AS(&grv_pip)                                                               &kp F12       &kp 4         &kp 5         &kp 6         B_AS(&pls_gt)    B_AS(&eql_pct)
+         B_AS(fsh_bsh)   B_AS(lt_gt)     B_AS(lbc_rbc)   B_AS(lbt_rbt)   B_AS(lpr_rpr)   B_AS(grv_pip)                                                               &kp F12       &kp 4         &kp 5         &kp 6         B_AS(pls_gt)    B_AS(eql_pct)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(&hsh_tld)   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp NONE      B_AS(&psr_ins)       &kp RGUI      &kp NONE      AS(K)         &kp 1         &kp 2         &kp 3         B_AS(&min_lt)    PERIOD
+         B_AS(hsh_tld)   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp NONE      B_AS(psr_ins)       &kp RGUI      &kp NONE      AS(K)         &kp 1         &kp 2         &kp 3         B_AS(min_lt)    PERIOD
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(&ent_esc)   &kp RCTRL     &kp RALT      B_AS(&tab_cap)   B_AS(&bsp_del)
+                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc)   &kp RCTRL     &kp RALT      B_AS(tab_cap)   B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      //, <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;  
 )
 
 ZMK_LAYER(nav_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         B_AS(&pow)       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+         B_AS(pow)       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
                        &kp Q         &kp A         &kp W         &kp D         &kp E                                                                     &kp R         &kp LEFT      &kp UP        &kp RIGHT     &kp F         &kp F
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                   &kp S         &kp Z         &kp X         &kp NONE      B_AS(&psr_ins)       &kp RGUI      &kp NONE      &kp C         &kp V         &kp DOWN
+                                                   &kp S         &kp Z         &kp X         &kp NONE      B_AS(psr_ins)       &kp RGUI      &kp NONE      &kp C         &kp V         &kp DOWN
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(&ent_esc)   &kp RCTRL     &kp RALT      B_AS(&tab_cap)  B_AS(&bsp_del)
+                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc)   &kp RCTRL     &kp RALT      B_AS(tab_cap)  B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      //, <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;  
 )
