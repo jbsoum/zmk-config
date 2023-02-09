@@ -83,7 +83,7 @@ ZMK_BEHAVIOR(per_exc, mod_morph,
      mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_BEHAVIOR(amp_at, mod_morph,
-     bindings = <&kp AMP>, <&kp AT>;
+     bindings = <&kp AMPS>, <&kp AT>;
      mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_BEHAVIOR(fsh_min, mod_morph,
