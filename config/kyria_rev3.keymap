@@ -170,7 +170,7 @@ ZMK_BEHAVIOR(ly_nav, macro,
 )
 ZMK_BEHAVIOR(layer, mod_morph,
      bindings = <&ly_num>, <&ly_nav>;
-     mods = <(MOD_RCTRL|MOD_LCTRL)>;
+     mods = <(MOD_RCTL|MOD_LCTL)>;
 )
 
 
