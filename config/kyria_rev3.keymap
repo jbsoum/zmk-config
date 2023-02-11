@@ -138,44 +138,44 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
 // J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
 
 // layer buttons (jbsoum add)
-// ZMK_BEHAVIOR(ly_def, macro,
-//      bindings 
-//           = <&to DEF>
-//           , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
-//           ;
-// )
-// ZMK_BEHAVIOR(ly_numhld, macro,
-//      bindings 
-//           = <&macro_press &mo NUM>
-//           , <&rgb_ug RGB_COLOR_HSB(110,25,100)>
-//           , <&macro_release &mo NUM>
-//           , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
-//           ;
-// )
-// ZMK_BEHAVIOR(ly_numtap, macro,
-//      bindings 
-//           = <&to NUM>
-//           , <&rgb_ug RGB_COLOR_HSB(110,25,100)>
-//           ;
-// )
-// ZMK_BEHAVIOR(ly_nav, macro,
-//      bindings 
-//           = <&to NAV>
-//           , <&rgb_ug RGB_COLOR_HSB(170,25,100)>
-//           ;
-// )
+ ZMK_BEHAVIOR(ly_def, macro,
+      bindings 
+           = <&to DEF>
+           , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
+           ;
+ )
+ ZMK_BEHAVIOR(ly_numhld, macro,
+      bindings 
+           = <&macro_press &mo NUM>
+           , <&rgb_ug RGB_COLOR_HSB(110,25,100)>
+           , <&macro_release &mo NUM>
+           , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
+           ;
+ )
+ ZMK_BEHAVIOR(ly_numtap, macro,
+      bindings 
+           = <&to NUM>
+           , <&rgb_ug RGB_COLOR_HSB(110,25,100)>
+           ;
+ )
+ ZMK_BEHAVIOR(ly_nav, macro,
+      bindings 
+           = <&to NAV>
+           , <&rgb_ug RGB_COLOR_HSB(170,25,100)>
+           ;
+ )
 
-// ZMK_BEHAVIOR(ly_num, hold_tap,
-//      tapping_term_ms = <200>;
-//      quick_tap_ms = <0>;
-//      flavor = "hold-preferred";
-//      bindings = <&ly_numhld>, <&ly_numtap>;
-// )
+ ZMK_BEHAVIOR(ly_num, hold_tap,
+      tapping_term_ms = <200>;
+      quick_tap_ms = <0>;
+      flavor = "hold-preferred";
+      bindings = <&ly_numhld>, <&ly_numtap>;
+ )
 
-// ZMK_BEHAVIOR(layer, mod_morph,
-//      bindings = <&ly_num>, <&ly_nav>;
-//      mods = <(MOD_RCTL|MOD_LCTL)>;
-// )
+ ZMK_BEHAVIOR(layer, mod_morph,
+      bindings = <&ly_num>, <&ly_nav>;
+      mods = <(MOD_RCTL|MOD_LCTL)>;
+ )
 
 
 /* homerow mods */ // from nodefree config
