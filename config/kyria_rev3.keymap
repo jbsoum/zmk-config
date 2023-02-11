@@ -216,26 +216,26 @@ ZMK_BEHAVIOR(layer, mod_morph,
 
 ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         /*B_AS(pow)*/ &none     AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
+         /*B_AS(pow)*/ &none     AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      /*B_AS(bsh_und)*/ &none
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(dll_pct) AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
+         /*B_AS(dll_pct)*/ &none AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(hsh_tld) AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         B_AS(psr_ins)     &kp RGUI      &none         AS(K)         AS(H)         B_AS(com_qmk) B_AS(per_exc) B_AS(fsh_min) B_AS(amp_at)
+         /*B_AS(hsh_tld)*/ &none AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         /*B_AS(psr_ins)*/ &none     &kp RGUI      &none         AS(K)         AS(H)         /*B_AS(com_qmk)*/ &none /*B_AS(per_exc)*/ &none /*B_AS(fsh_min)*/ &none /*B_AS(amp_at)*/ &none
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   /*&layer*/ &none        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
+                                                   /*&layer*/ &none        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         /*B_AS(ent_esc)*/ &none &kp RCTRL     &kp RALT      /*B_AS(tab_cap)*/ &none /*B_AS(bsp_del)*/ &none
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         /*B_AS(pow)*/ &none     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         B_AS(mlt_pwr) B_AS(fsh_dll)
+         /*B_AS(pow)*/ &none     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         /*B_AS(mlt_pwr)*/ &none /*B_AS(fsh_dll)*/ &none
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(fsh_bsh) B_AS(lt_gt)   B_AS(lbc_rbc) B_AS(lbt_rbt) B_AS(lpr_rpr) B_AS(grv_pip)                                                             &kp F12       &kp 4         &kp 5         &kp 6         B_AS(pls_gt)  B_AS(eql_pct)
+         /*B_AS(fsh_bsh)*/ &none /*B_AS(lt_gt)*/ &none   /*B_AS(lbc_rbc)*/ &none /*B_AS(lbt_rbt)*/ &none /*B_AS(lpr_rpr)*/ &none /*B_AS(grv_pip)*/ &none                                                             &kp F12       &kp 4         &kp 5         &kp 6         /*B_AS(pls_gt)*/ &none  /*B_AS(eql_pct)*/ &none
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         B_AS(hsh_tld) &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &none         B_AS(psr_ins)     &kp RGUI      &none         AS(K)         &kp 1         &kp 2         &kp 3         B_AS(min_lt)  &kp PERIOD
+         /*B_AS(hsh_tld)*/ &none &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &none         /*B_AS(psr_ins)*/ &none     &kp RGUI      &none         AS(K)         &kp 1         &kp 2         &kp 3         /*B_AS(min_lt)*/ &none  &kp PERIOD
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   /*&ly_def*/ &none       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
+                                                   /*&ly_def*/ &none       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         /*B_AS(ent_esc)*/ &none &kp RCTRL     &kp RALT      /*B_AS(tab_cap)*/ &none /*B_AS(bsp_del)*/ &none
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
@@ -246,9 +246,9 @@ ZMK_LAYER(nav,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
          &none         &kp Q         &kp A         &kp W         &kp D         &kp E                                                                     &kp R         &kp LEFT      &kp UP        &kp RIGHT     &kp F         &kp F
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &none         &none         &none         &kp S         &kp Z         &kp X         &none         B_AS(psr_ins)     &kp RGUI      &none         &kp C         &kp V         &kp DOWN      &none         &none         &none 
+         &none         &none         &none         &kp S         &kp Z         &kp X         &none         /*B_AS(psr_ins)*/ &none     &kp RGUI      &none         &kp C         &kp V         &kp DOWN      &none         &none         &none 
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   /*&ly_def*/ &none       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
+                                                   /*&ly_def*/ &none       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         /*B_AS(ent_esc)*/ &none &kp RCTRL     &kp RALT      /*B_AS(tab_cap)*/ &none /*B_AS(bsp_del)*/ &none
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
