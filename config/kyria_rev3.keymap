@@ -29,17 +29,6 @@
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
 #define B_AS(name) &ht_ ## name LSHIFT
 
-ZMK_BEHAVIOR(com_qmk, mod_morph,
-     bindings = <&kp COMMA>, <&kp QMARK>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_com_qmk, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&com_qmk>;
-)
-
 
 /* custom behaviors */
 
@@ -99,6 +88,7 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
      flavor = "tap-preferred";
      bindings = <&kp LSHIFT>, <&pow>;
 )
+J_BEHAVIOR_CUSTOM_ht(pow, COMMA, QMARK)
 
 // custom shift keys - typing layer (jbsoum add)
 // each behavior is a mod tap with a nested mod morph, described w/ two ZMK_BEHAVIOR functions
@@ -473,7 +463,7 @@ ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all la
 
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &mt_pow       AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
+         B_AS(pow)     AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          B_AS(dll_pct) AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -486,7 +476,7 @@ ZMK_LAYER(default_layer,
 
 ZMK_LAYER(num_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &mt_pow       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         B_AS(mlt_pwr) B_AS(fsh_dll)
+         B_AS(pow)     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         B_AS(mlt_pwr) B_AS(fsh_dll)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          B_AS(fsh_bsh) B_AS(lt_gt)   B_AS(lbc_rbc) B_AS(lbt_rbt) B_AS(lpr_rpr) B_AS(grv_pip)                                                             &kp F12       &kp 4         &kp 5         &kp 6         B_AS(pls_gt)  B_AS(eql_pct)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -499,7 +489,7 @@ ZMK_LAYER(num_layer,
 
 ZMK_LAYER(nav_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &mt_pow       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+         B_AS(pow)     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
                        &kp Q         &kp A         &kp W         &kp D         &kp E                                                                     &kp R         &kp LEFT      &kp UP        &kp RIGHT     &kp F         &kp F
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
