@@ -215,6 +215,17 @@ ZMK_BEHAVIOR(ht_eql_pct, hold_tap,
      bindings = <&kp LSHIFT>, <&eql_pct>;
 )
 
+ZMK_BEHAVIOR(fsh_dll, mod_morph,
+     bindings = <&kp FSLH>, <&kp DOLLAR>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_fsh_dll, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&fsh_dll>;
+)
+
 // custom shift keys - actions (jbsoum add)
 ZMK_BEHAVIOR(hme_end, mod_morph,
      bindings = <&kp HOME>, <&kp END>;
