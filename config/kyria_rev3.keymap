@@ -24,7 +24,7 @@
 
 #define OPTS_B_AS(tap_kp, hold_kp) bindings = <&kp tap_kp>, <&kp hold_kp>; mods = <(MOD_LSFT|MOD_RSFT)>;
 #define OPTS_HT(name) tapping_term_ms = <135>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&kp>, <&name>;
-#define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \ 
+#define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
      ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp)) \
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
 #define B_AS(name) &ht_ ## name LSHIFT
