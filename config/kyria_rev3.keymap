@@ -22,11 +22,11 @@
 
 /* jbsoum add - custom autoshift keys*/
 
-#define OPTS_B_AS(tap_kp, hold_kp) bindings = <&kp tap_kp>, <&kp hold_kp>; mods = <(MOD_LSFT|MOD_RSFT)>;
-#define OPTS_HT(name) tapping_term_ms = <135>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&kp>, <&name>;
+#define OPTS_B_AS(tap_kp, hold_kp) bindings = <&kp tap_kp>, <&kp hold_kp>; mods = <(MOD_LSFT|MOD_RSFT)>
+#define OPTS_HT(name) tapping_term_ms = <135>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&kp>, <&name>
 #define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
-     ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp)) \
-     ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
+     ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp);) \
+     ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name);)
 #define B_AS(name) &ht_ ## name LSHIFT
 
 
@@ -471,7 +471,7 @@ ZMK_LAYER(default_layer,
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                    &layer        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-    , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+    //, &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(num_layer,
@@ -484,7 +484,7 @@ ZMK_LAYER(num_layer,
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                    &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+     //, &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(nav_layer,
@@ -497,7 +497,7 @@ ZMK_LAYER(nav_layer,
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                    &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+     //, &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 
