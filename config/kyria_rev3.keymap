@@ -7,7 +7,6 @@
 
 //jbsoum add - macros from here: https://zmk.dev/docs/behaviors/hold-tap
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
-#define &ht_behavior) &mt LSHIFT behavior     // Autoshift Macro, for behaviors
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 #include "../zmk-nodefree-config/helper.h"
