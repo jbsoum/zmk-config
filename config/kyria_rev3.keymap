@@ -169,7 +169,7 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
       tapping_term_ms = <200>;
       quick_tap_ms = <0>;
       flavor = "hold-preferred";
-      bindings = <&ly_numhld>, <&ly_numtap>;
+      bindings = <&ly_def>, <&ly_numtap>;
  )
 
  ZMK_BEHAVIOR(layer, mod_morph,
