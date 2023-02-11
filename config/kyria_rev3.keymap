@@ -86,9 +86,8 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
      tapping_term_ms = <135>;
      quick_tap_ms = <0>;
      flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&pow>;
+     bindings = <&kp>, <&pow>;
 )
-J_BEHAVIOR_CUSTOM_ht(pow, COMMA, QMARK)
 
 // custom shift keys - typing layer (jbsoum add)
 // each behavior is a mod tap with a nested mod morph, described w/ two ZMK_BEHAVIOR functions
