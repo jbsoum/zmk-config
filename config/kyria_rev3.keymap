@@ -20,6 +20,27 @@
 #define NUM 1
 #define NAV 2
 
+/* jbsoum add - custom autoshift keys*/
+
+#define OPTS_B_AS(tap_kp, hold_kp) bindings = <&kp tap_kp>, <&kp hold_kp>; mods = <(MOD_LSFT|MOD_RSFT)>;
+#define OPTS_HT(name) tapping_term_ms = <135>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&kp>, <&name>;
+#define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \ 
+     ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp)) \
+     ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
+#define B_AS(name) &ht_ ## name LSHIFT
+
+ZMK_BEHAVIOR(com_qmk, mod_morph,
+     bindings = <&kp COMMA>, <&kp QMARK>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_com_qmk, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&com_qmk>;
+)
+
+
 /* custom behaviors */
 
 //jbsoum add - autoshift macro from here: https://zmk.dev/docs/behaviors/hold-tap
@@ -82,272 +103,296 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
 // custom shift keys - typing layer (jbsoum add)
 // each behavior is a mod tap with a nested mod morph, described w/ two ZMK_BEHAVIOR functions
 
-ZMK_BEHAVIOR(com_qmk, mod_morph,
-     bindings = <&kp COMMA>, <&kp QMARK>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_com_qmk, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&com_qmk>;
-)
+// ZMK_BEHAVIOR(com_qmk, mod_morph,
+//      bindings = <&kp COMMA>, <&kp QMARK>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_com_qmk, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&com_qmk>;
+// )
+J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
 
-ZMK_BEHAVIOR(per_exc, mod_morph,
-     bindings = <&kp PERIOD>, <&kp EXCL>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_per_exc, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&per_exc>;
-)
+// ZMK_BEHAVIOR(per_exc, mod_morph,
+//      bindings = <&kp PERIOD>, <&kp EXCL>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_per_exc, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&per_exc>;
+// )
+J_BEHAVIOR_CUSTOM_ht(per_exc, PERIOD, EXCL)
 
-ZMK_BEHAVIOR(amp_at, mod_morph,
-     bindings = <&kp AMPS>, <&kp AT>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_amp_at, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&amp_at>;
-)
+// ZMK_BEHAVIOR(amp_at, mod_morph,
+//      bindings = <&kp AMPS>, <&kp AT>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_amp_at, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&amp_at>;
+// )
+J_BEHAVIOR_CUSTOM_ht(per_exc, AMPS, AT)
 
-ZMK_BEHAVIOR(fsh_min, mod_morph,
-     bindings = <&kp FSLH>, <&kp MINUS>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_fsh_min, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&fsh_min>;
-)
+// ZMK_BEHAVIOR(fsh_min, mod_morph,
+//      bindings = <&kp FSLH>, <&kp MINUS>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_fsh_min, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&fsh_min>;
+// )
+J_BEHAVIOR_CUSTOM_ht(fsh_min, FSLH, MINUS)
 
-ZMK_BEHAVIOR(bsh_und, mod_morph,
-     bindings = <&kp BSLH>, <&kp UNDER>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_bsh_und, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&bsh_und>;
-)
+// ZMK_BEHAVIOR(bsh_und, mod_morph,
+//      bindings = <&kp BSLH>, <&kp UNDER>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_bsh_und, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&bsh_und>;
+// )
+J_BEHAVIOR_CUSTOM_ht(bsh_und, BSLH, UNDER)
 
-ZMK_BEHAVIOR(hsh_tld, mod_morph,
-     bindings = <&kp HASH>, <&kp TILDE>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_hsh_tld, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&hsh_tld>;
-)
+// ZMK_BEHAVIOR(hsh_tld, mod_morph,
+//      bindings = <&kp HASH>, <&kp TILDE>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_hsh_tld, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&hsh_tld>;
+// )
+J_BEHAVIOR_CUSTOM_ht(hsh_tld, HASH, TILDE)
 
-ZMK_BEHAVIOR(dll_pct, mod_morph,
-     bindings = <&kp DOLLAR>, <&kp PERCENT>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_dll_pct, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&dll_pct>;
-)
+// ZMK_BEHAVIOR(dll_pct, mod_morph,
+//      bindings = <&kp DOLLAR>, <&kp PERCENT>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_dll_pct, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&dll_pct>;
+// )
+J_BEHAVIOR_CUSTOM_ht(dll_pct, DOLLAR, PERCENT)
 
 // custom shift keys - number layer (jbsoum add)
-ZMK_BEHAVIOR(pls_gt, mod_morph,
-     bindings = <&kp PLUS>, <&kp GREATER_THAN>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_pls_gt, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&pls_gt>;
-)
+// ZMK_BEHAVIOR(pls_gt, mod_morph,
+//      bindings = <&kp PLUS>, <&kp GREATER_THAN>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_pls_gt, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&pls_gt>;
+// )
+J_BEHAVIOR_CUSTOM_ht(pls_gt, PLUS, GREATER_THAN)
 
-ZMK_BEHAVIOR(min_lt, mod_morph,
-     bindings = <&kp MINUS>, <&kp LESS_THAN>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_min_lt, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&min_lt>;
-)
+// ZMK_BEHAVIOR(min_lt, mod_morph,
+//      bindings = <&kp MINUS>, <&kp LESS_THAN>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_min_lt, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&min_lt>;
+// )
+J_BEHAVIOR_CUSTOM_ht(min_lt, MINUS, LESS_THAN)
 
-ZMK_BEHAVIOR(mlt_pwr, mod_morph,
-     bindings = <&kp STAR>, <&kp CARET>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_mlt_pwr, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&mlt_pwr>;
-)
+// ZMK_BEHAVIOR(mlt_pwr, mod_morph,
+//      bindings = <&kp STAR>, <&kp CARET>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_mlt_pwr, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&mlt_pwr>;
+// )
+J_BEHAVIOR_CUSTOM_ht(mlt_pwr, STAR, CARET)
 
-ZMK_BEHAVIOR(div_dll, mod_morph,
-     bindings = <&kp FSLH>, <&kp DOLLAR>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_div_dll, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&div_dll>;
-)
+// ZMK_BEHAVIOR(div_dll, mod_morph,
+//      bindings = <&kp FSLH>, <&kp DOLLAR>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_div_dll, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&div_dll>;
+// )
+J_BEHAVIOR_CUSTOM_ht(div_dll, FSLH, DOLLAR)
 
-ZMK_BEHAVIOR(eql_pct, mod_morph,
-     bindings = <&kp EQUAL>, <&kp PERCENT>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_eql_pct, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&eql_pct>;
-)
+// ZMK_BEHAVIOR(eql_pct, mod_morph,
+//      bindings = <&kp EQUAL>, <&kp PERCENT>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_eql_pct, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&eql_pct>;
+// )
+J_BEHAVIOR_CUSTOM_ht(eql_pct, EQUAL, PERCENT)
 
-ZMK_BEHAVIOR(fsh_dll, mod_morph,
-     bindings = <&kp FSLH>, <&kp DOLLAR>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_fsh_dll, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&fsh_dll>;
-)
+// ZMK_BEHAVIOR(fsh_dll, mod_morph,
+//      bindings = <&kp FSLH>, <&kp DOLLAR>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_fsh_dll, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&fsh_dll>;
+// )
+J_BEHAVIOR_CUSTOM_ht(fsh_dll, FSLH, DOLLAR)
 
-ZMK_BEHAVIOR(grv_pip, mod_morph,
-     bindings = <&kp GRAVE>, <&kp PIPE>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_grv_pip, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&grv_pip>;
-)
+// ZMK_BEHAVIOR(grv_pip, mod_morph,
+//      bindings = <&kp GRAVE>, <&kp PIPE>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_grv_pip, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&grv_pip>;
+// )
+J_BEHAVIOR_CUSTOM_ht(grv_pip, GRAVE, PIPE)
 
 // custom shift keys - brackets (jbsoum add)
-ZMK_BEHAVIOR(fsh_bsh, mod_morph,
-     bindings = <&kp FSLH>, <&kp BSLH>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_fsh_bsh, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&fsh_bsh>;
-)
+// ZMK_BEHAVIOR(fsh_bsh, mod_morph,
+//      bindings = <&kp FSLH>, <&kp BSLH>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_fsh_bsh, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&fsh_bsh>;
+// )
+J_BEHAVIOR_CUSTOM_ht(fsh_bsh, FSLH, BSLH)
 
-ZMK_BEHAVIOR(lpr_rpr, mod_morph,
-     bindings = <&kp LPAR>, <&kp RPAR>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_lpr_rpr, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&lpr_rpr>;
-)
+// ZMK_BEHAVIOR(lpr_rpr, mod_morph,
+//      bindings = <&kp LPAR>, <&kp RPAR>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_lpr_rpr, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&lpr_rpr>;
+// )
+J_BEHAVIOR_CUSTOM_ht(lpr_rpr, LPAR, RPAR)
 
-ZMK_BEHAVIOR(lbt_rbt, mod_morph,
-     bindings = <&kp LBKT>, <&kp RBKT>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_lbt_rbt, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&lbt_rbt>;
-)
+// ZMK_BEHAVIOR(lbt_rbt, mod_morph,
+//      bindings = <&kp LBKT>, <&kp RBKT>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_lbt_rbt, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&lbt_rbt>;
+// )
+J_BEHAVIOR_CUSTOM_ht(lbt_rbt, LBKT, RBKT)
 
-ZMK_BEHAVIOR(lbc_rbc, mod_morph,
-     bindings = <&kp LBRC>, <&kp RBRC>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_lbc_rbc, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&lbc_rbc>;
-)
+// ZMK_BEHAVIOR(lbc_rbc, mod_morph,
+//      bindings = <&kp LBRC>, <&kp RBRC>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_lbc_rbc, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&lbc_rbc>;
+// )
+J_BEHAVIOR_CUSTOM_ht(lbc_rbc, LBRC, RBRC)
 
-ZMK_BEHAVIOR(lt_gt, mod_morph,
-     bindings = <&kp LT>, <&kp GT>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_lt_gt, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&lt_gt>;
-)
+// ZMK_BEHAVIOR(lt_gt, mod_morph,
+//      bindings = <&kp LT>, <&kp GT>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_lt_gt, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&lt_gt>;
+// )
+J_BEHAVIOR_CUSTOM_ht(lt_gt, LT, GT)
 
 // custom shift keys - actions (jbsoum add)
-ZMK_BEHAVIOR(hme_end, mod_morph,
-     bindings = <&kp HOME>, <&kp END>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_hme_end, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&hme_end>;
-)
+// ZMK_BEHAVIOR(hme_end, mod_morph,
+//      bindings = <&kp HOME>, <&kp END>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_hme_end, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&hme_end>;
+// )
+J_BEHAVIOR_CUSTOM_ht(hme_end, HOME, END)
 
-ZMK_BEHAVIOR(bsp_del, mod_morph,
-     bindings = <&kp BACKSPACE>, <&kp DELETE>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_bsp_del, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&bsp_del>;
-)
+// ZMK_BEHAVIOR(bsp_del, mod_morph,
+//      bindings = <&kp BACKSPACE>, <&kp DELETE>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_bsp_del, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&bsp_del>;
+// )
+J_BEHAVIOR_CUSTOM_ht(bsp_del, BACKSPACE, DELETE)
 
-ZMK_BEHAVIOR(psr_ins, mod_morph,
-     bindings = <&kp PRINTSCREEN>, <&kp INSERT>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_psr_ins, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&psr_ins>;
-)
+// ZMK_BEHAVIOR(psr_ins, mod_morph,
+//      bindings = <&kp PRINTSCREEN>, <&kp INSERT>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_psr_ins, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&psr_ins>;
+// )
+J_BEHAVIOR_CUSTOM_ht(psr_ins, PRINTSCREEN, INSERT)
 
-ZMK_BEHAVIOR(tab_cap, mod_morph,
-     bindings = <&kp TAB>, <&kp CAPSLOCK>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_tab_cap, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&tab_cap>;
-)
+// ZMK_BEHAVIOR(tab_cap, mod_morph,
+//      bindings = <&kp TAB>, <&kp CAPSLOCK>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_tab_cap, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&tab_cap>;
+// )
+J_BEHAVIOR_CUSTOM_ht(tab_cap, TAB, CAPSLOCK)
 
-ZMK_BEHAVIOR(ent_esc, mod_morph,
-     bindings = <&kp ENTER>, <&kp ESCAPE>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_ent_esc, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp LSHIFT>, <&ent_esc>;
-)
+// ZMK_BEHAVIOR(ent_esc, mod_morph,
+//      bindings = <&kp ENTER>, <&kp ESCAPE>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_ent_esc, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp LSHIFT>, <&ent_esc>;
+// )
+J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
 
 // layer buttons (jbsoum add)
 ZMK_BEHAVIOR(ly_def, macro,
@@ -428,39 +473,39 @@ ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all la
 
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &ht_pow       AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      &ht_bsh_und
+         &mt_pow       AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &ht_dll_pct   AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
+         B_AS(dll_pct) AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &ht_hsh_tld   AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         &ht_psr_ins       &kp RGUI      &none         AS(K)         AS(H)         &ht_com_qmk   &ht_per_exc   &ht_fsh_min   &ht_amp_at
+         B_AS(hsh_tld) AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         B_AS(psr_ins)     &kp RGUI      &none         AS(K)         AS(H)         B_AS(com_qmk) B_AS(per_exc) B_AS(fsh_min) B_AS(amp_at)
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &layer        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         &ht_ent_esc   &kp RCTRL     &kp RALT      &ht_tab_cap   &ht_bsp_del
+                                                   &layer        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(num_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &ht_pow       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         &ht_mlt_pwr   &ht_fsh_dll
+         &mt_pow       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F11       &kp 7         &kp 8         &kp 9         B_AS(mlt_pwr) B_AS(fsh_dll)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &ht_fsh_bsh   &ht_lt_gt     &ht_lbc_rbc   &ht_lbt_rbt   &ht_lpr_rpr   &ht_grv_pip                                                               &kp F12       &kp 4         &kp 5         &kp 6         &ht_pls_gt    &ht_eql_pct
+         B_AS(fsh_bsh) B_AS(lt_gt)   B_AS(lbc_rbc) B_AS(lbt_rbt) B_AS(lpr_rpr) B_AS(grv_pip)                                                             &kp F12       &kp 4         &kp 5         &kp 6         B_AS(pls_gt)  B_AS(eql_pct)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &ht_hsh_tld   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &none         &ht_psr_ins       &kp RGUI      &none         AS(K)         &kp 1         &kp 2         &kp 3         &ht_min_lt    PERIOD
+         B_AS(hsh_tld) &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &none         B_AS(psr_ins)     &kp RGUI      &none         AS(K)         &kp 1         &kp 2         &kp 3         B_AS(min_lt)    PERIOD
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         &ht_ent_esc   &kp RCTRL     &kp RALT      &ht_tab_cap   &ht_bsp_del
+                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(nav_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &ht_pow       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+         &mt_pow       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
                        &kp Q         &kp A         &kp W         &kp D         &kp E                                                                     &kp R         &kp LEFT      &kp UP        &kp RIGHT     &kp F         &kp F
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                   &kp S         &kp Z         &kp X         &none         &ht_psr_ins       &kp RGUI      &none         &kp C         &kp V         &kp DOWN
+                                                   &kp S         &kp Z         &kp X         &none         B_AS(psr_ins)     &kp RGUI      &none         &kp C         &kp V         &kp DOWN
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         &ht_ent_esc   &kp RCTRL     &kp RALT      &ht_tab_cap   &ht_bsp_del
+                                                   &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
