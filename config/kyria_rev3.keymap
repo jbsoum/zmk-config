@@ -127,7 +127,7 @@ J_BEHAVIOR_CUSTOM_ht(per_exc, PERIOD, EXCL)
 //      flavor = "tap-preferred";
 //      bindings = <&kp LSHIFT>, <&amp_at>;
 // )
-J_BEHAVIOR_CUSTOM_ht(per_exc, AMPS, AT)
+J_BEHAVIOR_CUSTOM_ht(amp_at, AMPS, AT)
 
 // ZMK_BEHAVIOR(fsh_min, mod_morph,
 //      bindings = <&kp FSLH>, <&kp MINUS>;
