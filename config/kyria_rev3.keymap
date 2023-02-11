@@ -226,6 +226,62 @@ ZMK_BEHAVIOR(ht_fsh_dll, hold_tap,
      bindings = <&kp LSHIFT>, <&fsh_dll>;
 )
 
+// custom shift keys - brackets (jbsoum add)
+ZMK_BEHAVIOR(fsh_bsh, mod_morph,
+     bindings = <&kp FSLH>, <&kp BSLH>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_fsh_bsh, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&fsh_bsh>;
+)
+
+ZMK_BEHAVIOR(lpr_rpr, mod_morph,
+     bindings = <&kp LPAR>, <&kp RPAR>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_lpr_rpr, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&lpr_rpr>;
+)
+
+ZMK_BEHAVIOR(lbt_rbt, mod_morph,
+     bindings = <&kp LBKT>, <&kp RBKT>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_lbt_rbt, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&lbt_rbt>;
+)
+
+ZMK_BEHAVIOR(lbc_rbc, mod_morph,
+     bindings = <&kp LBRC>, <&kp RBRC>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_lbc_rbc, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&lbc_rbc>;
+)
+
+ZMK_BEHAVIOR(lt_gt, mod_morph,
+     bindings = <&kp LT>, <&kp GT>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(ht_lt_gt, hold_tap,
+     tapping_term_ms = <135>;
+     quick_tap_ms = <0>;
+     flavor = "tap-preferred";
+     bindings = <&kp LSHIFT>, <&lt_gt>;
+)
+
 // custom shift keys - actions (jbsoum add)
 ZMK_BEHAVIOR(hme_end, mod_morph,
      bindings = <&kp HOME>, <&kp END>;
