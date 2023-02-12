@@ -137,12 +137,12 @@ J_BEHAVIOR_CUSTOM_ht(tab_cap, TAB, CAPSLOCK)
 J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
 
 // layer buttons (jbsoum add)
-//  ZMK_BEHAVIOR(ly_def, macro,
-//       bindings 
-//            = <&macro_tap &to DEF>
-//            , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
-//            ;
-//  )
+ ZMK_BEHAVIOR(ly_def, macro,
+     bindings 
+          = <&macro_tap &to DEF>
+          , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
+          ;
+ )
 //  ZMK_BEHAVIOR(ly_numhld, macro,
 //       bindings 
 //            = <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
