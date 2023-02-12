@@ -149,28 +149,28 @@ J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
 ZMK_BEHAVIOR(ly_def, macro,
      bindings 
           = <&macro_tap &to DEF>
-          , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
+          , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
           ;
  )
 ZMK_BEHAVIOR(ly_numhld, macro,
      bindings 
-          = <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
+          = <&rgb_ug RGB_COLOR_HSB(110,25,100)>
           , <&macro_press &mo NUM>
           , <&macro_pause_for_release>
           , <&macro_release &mo NUM>
-          , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
+          , <&rgb_ug RGB_COLOR_HSB(45,20,100)>
           ;
  )
 ZMK_BEHAVIOR(ly_numtap, macro,
      bindings 
           = <&macro_tap &to NUM>
-          , <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
+          , <&rgb_ug RGB_COLOR_HSB(110,25,100)>
           ;
  )
 ZMK_BEHAVIOR(ly_nav, macro,
      bindings 
           = <&macro_tap &to NAV>
-          , <&macro_tap &rgb_ug RGB_COLOR_HSB(170,25,100)>
+          , <&rgb_ug RGB_COLOR_HSB(170,25,100)>
           ;
 )
 
