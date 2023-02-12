@@ -22,13 +22,7 @@
 
 /* jbsoum add - custom autoshift keys*/
 
-#define OPTS_B_AS(tap_kp, hold_kp)      bindings = <&kp tap_kp>, <&kp hold_kp>; mods = <(MOD_LSFT|MOD_RSFT)>;
-#define OPTS_HT(name)                   tapping_term_ms = <135>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&kp>, <&name>;
 
-// #define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
-//      ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp)) \
-//      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
-// #define B_AS(name) &ht_ ## name LSHIFT
 
 
 /* custom behaviors */
@@ -90,9 +84,6 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
      bindings = <&kp>, <&pow>;
 )
 
-
-
-
 // ZMK_BEHAVIOR(com_qmk, mod_morph,
 //      bindings = <&kp COMMA>, <&kp QMARK>;
 //      mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -103,6 +94,14 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
 //      flavor = "tap-preferred";
 //      bindings = <&kp LSHIFT>, <&com_qmk>;
 // )
+
+#define OPTS_B_AS(tap_kp, hold_kp)      bindings = <&kp tap_kp>, <&kp hold_kp>; mods = <(MOD_LSFT|MOD_RSFT)>;
+#define OPTS_HT(name)                   tapping_term_ms = <135>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&kp>, <&name>;
+
+#define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
+     ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp)) \
+     ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
+#define B_AS(name) &ht_ ## name LSHIFT
 
 // custom shift keys - typing layer (jbsoum add)
 // each behavior is a mod tap with a nested mod morph, described w/ two ZMK_BEHAVIOR functions
