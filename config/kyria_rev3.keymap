@@ -139,13 +139,13 @@ J_BEHAVIOR_CUSTOM_ht(tab_cap, TAB, CAPSLOCK)
 J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
 
 // layer buttons (jbsoum add)
- ZMK_BEHAVIOR(ly_def, macro,
+ZMK_BEHAVIOR(ly_def, macro,
      bindings 
           = <&macro_tap &to DEF>
           , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
           ;
  )
- ZMK_BEHAVIOR(ly_numhld, macro,
+ZMK_BEHAVIOR(ly_numhld, macro,
      bindings 
           = <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
           , <&macro_press &mo NUM>
@@ -154,25 +154,25 @@ J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
           , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
           ;
  )
- ZMK_BEHAVIOR(ly_numtap, macro,
+ZMK_BEHAVIOR(ly_numtap, macro,
      bindings 
           = <&macro_tap &to NUM>
           , <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
           ;
  )
-//  ZMK_BEHAVIOR(ly_nav, macro,
-//       bindings 
-//            = <&macro_tap &to NAV>
-//            , <&macro_tap &rgb_ug RGB_COLOR_HSB(170,25,100)>
-//            ;
-//  )
+ZMK_BEHAVIOR(ly_nav, macro,
+     bindings 
+          = <&macro_tap &to NAV>
+          , <&macro_tap &rgb_ug RGB_COLOR_HSB(170,25,100)>
+          ;
+)
 
-//  ZMK_BEHAVIOR(ly_num, hold_tap,
-//      flavor = "hold-preferred";
-//      tapping_term_ms = <200>;
-//      quick_tap_ms = <0>;
-//      bindings = <&ly_numhld>, <&ly_numtap>;
-//  )
+ZMK_BEHAVIOR(ly_num, hold_tap,
+     flavor = "hold-preferred";
+     tapping_term_ms = <200>;
+     quick_tap_ms = <0>;
+     bindings = <&ly_numhld>, <&ly_numtap>;
+)
 
 //  ZMK_BEHAVIOR(ly, mod_morph,
 //       bindings = <&ly_num 0>, <&ly_nav>;
