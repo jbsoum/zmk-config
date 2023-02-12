@@ -71,12 +71,12 @@ ZMK_BEHAVIOR(alt_redo, macro,
           ;
 )
 // cycle power and lighting
-// ZMK_BEHAVIOR(pow_tap, macro,
-//      bindings
-//           = <&macro_tap &rgb_ug RGB_TOG>
-//           , <&macro_tap &rgb_ug BL_TOG>
-//           ;
-// )
+ZMK_BEHAVIOR(pow_tap, macro,
+     bindings
+          = <&macro_tap &rgb_ug RGB_TOG>
+          , <&macro_tap &rgb_ug BL_TOG>
+          ;
+)
 
 //jbsoum add - power key
 // ZMK_BEHAVIOR(pow, mod_morph,
