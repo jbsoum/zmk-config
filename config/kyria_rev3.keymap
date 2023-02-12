@@ -40,13 +40,13 @@ ZMK_BEHAVIOR(as, hold_tap,
      flavor = "tap-preferred";
      bindings = <&kp>, <&kp>;
 )
-jbsoum add - momentary layer when held, toggle layer when tapped, from here: https://zmk.dev/docs/behaviors/hold-tap
+//jbsoum add - momentary layer when held, toggle layer when tapped, from here: https://zmk.dev/docs/behaviors/hold-tap
 ZMK_BEHAVIOR(mo_tog, hold_tap,
      flavor = "hold-preferred";
      tapping-term-ms = <200>;
      bindings = <&mo>, <&tog>;
 )
-jbsoum add - crosshand only modifiers, from here: https://zmk.dev/docs/behaviors/hold-tap
+//jbsoum add - crosshand only modifiers, from here: https://zmk.dev/docs/behaviors/hold-tap
 ZMK_BEHAVIOR(lh_pht, hold_tap,
      flavor = "tap-unless-interrupted";
      tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
