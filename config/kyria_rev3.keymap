@@ -34,61 +34,61 @@
 /* custom behaviors */
 
 //jbsoum add - autoshift macro from here: https://zmk.dev/docs/behaviors/hold-tap
-ZMK_BEHAVIOR(as, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp>, <&kp>;
-)
+// // ZMK_BEHAVIOR(as, hold_tap,
+// //      tapping_term_ms = <135>;
+// //      quick_tap_ms = <0>;
+// //      flavor = "tap-preferred";
+// //      bindings = <&kp>, <&kp>;
+// // )
 //jbsoum add - momentary layer when held, toggle layer when tapped, from here: https://zmk.dev/docs/behaviors/hold-tap
-ZMK_BEHAVIOR(mo_tog, hold_tap,
-     flavor = "hold-preferred";
-     tapping-term-ms = <200>;
-     bindings = <&mo>, <&tog>;
-)
+// ZMK_BEHAVIOR(mo_tog, hold_tap,
+//      flavor = "hold-preferred";
+//      tapping-term-ms = <200>;
+//      bindings = <&mo>, <&tog>;
+// )
 //jbsoum add - crosshand only modifiers, from here: https://zmk.dev/docs/behaviors/hold-tap
-ZMK_BEHAVIOR(lh_pht, hold_tap,
-     flavor = "tap-unless-interrupted";
-     tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
-     quick-tap-ms = <200>;
-     bindings = <&kp>, <&kp>;
-     hold-trigger-key-positions = <RM0 RM1 RM2 RM3 RM4 RM5>;    // <---[[right-hand keys]]
-)
-ZMK_BEHAVIOR(rh_pht, hold_tap,
-     flavor = "tap-unless-interrupted";
-     tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
-     quick-tap-ms = <200>;
-     bindings = <&kp>, <&kp>;
-     hold-trigger-key-positions = <LM5 LM4 LM3 LM2 LM1 LM0>;    // <---[[left-hand keys]]
-)
+// ZMK_BEHAVIOR(lh_pht, hold_tap,
+//      flavor = "tap-unless-interrupted";
+//      tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+//      quick-tap-ms = <200>;
+//      bindings = <&kp>, <&kp>;
+//      hold-trigger-key-positions = <RM0 RM1 RM2 RM3 RM4 RM5>;    // <---[[right-hand keys]]
+// )
+// ZMK_BEHAVIOR(rh_pht, hold_tap,
+//      flavor = "tap-unless-interrupted";
+//      tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+//      quick-tap-ms = <200>;
+//      bindings = <&kp>, <&kp>;
+//      hold-trigger-key-positions = <LM5 LM4 LM3 LM2 LM1 LM0>;    // <---[[left-hand keys]]
+// )
 // undo fix for VBA (use Alt, E, R, Enter instead, works for most office products) (jbsoum add)
-ZMK_BEHAVIOR(alt_redo, macro,
-     bindings
-          = <&macro_tap &kp LALT>
-          , <&macro_tap &kp E>
-          , <&macro_tap &kp R>
-          , <&macro_tap &kp ENTER> 
-          ;
-)
+// ZMK_BEHAVIOR(alt_redo, macro,
+//      bindings
+//           = <&macro_tap &kp LALT>
+//           , <&macro_tap &kp E>
+//           , <&macro_tap &kp R>
+//           , <&macro_tap &kp ENTER> 
+//           ;
+// )
 // cycle power and lighting
-ZMK_BEHAVIOR(pow_tap, macro,
-     bindings
-          = <&macro_tap &rgb_ug RGB_TOG>
-          , <&macro_tap &rgb_ug BL_TOG>
-          ;
-)
+// ZMK_BEHAVIOR(pow_tap, macro,
+//      bindings
+//           = <&macro_tap &rgb_ug RGB_TOG>
+//           , <&macro_tap &rgb_ug BL_TOG>
+//           ;
+// )
 
 //jbsoum add - power key
-ZMK_BEHAVIOR(pow, mod_morph,
-     bindings = <&pow_tap>, <&ext_power EP_TOG>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(ht_pow, hold_tap,
-     tapping_term_ms = <135>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&kp>, <&pow>;
-)
+// ZMK_BEHAVIOR(pow, mod_morph,
+//      bindings = <&pow_tap>, <&ext_power EP_TOG>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(ht_pow, hold_tap,
+//      tapping_term_ms = <135>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&kp>, <&pow>;
+// )
 
 
 
@@ -138,45 +138,45 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
 // J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, CAPSLOCK)
 
 // layer buttons (jbsoum add)
- ZMK_BEHAVIOR(ly_def, macro,
-      bindings 
-           = <&macro_tap &to DEF>
-           , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
-           ;
- )
- ZMK_BEHAVIOR(ly_numhld, macro,
-      bindings 
-           = <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
-           , <&macro_press &mo NUM>
-           , <&macro_pause_for_release>
-           , <&macro_release &mo NUM>
-           , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
-           ;
- )
- ZMK_BEHAVIOR(ly_numtap, macro,
-      bindings 
-           = <&macro_tap &to NUM>
-           , <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
-           ;
- )
- ZMK_BEHAVIOR(ly_nav, macro,
-      bindings 
-           = <&macro_tap &to NAV>
-           , <&macro_tap &rgb_ug RGB_COLOR_HSB(170,25,100)>
-           ;
- )
+//  ZMK_BEHAVIOR(ly_def, macro,
+//       bindings 
+//            = <&macro_tap &to DEF>
+//            , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
+//            ;
+//  )
+//  ZMK_BEHAVIOR(ly_numhld, macro,
+//       bindings 
+//            = <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
+//            , <&macro_press &mo NUM>
+//            , <&macro_pause_for_release>
+//            , <&macro_release &mo NUM>
+//            , <&macro_tap &rgb_ug RGB_COLOR_HSB(45,20,100)>
+//            ;
+//  )
+//  ZMK_BEHAVIOR(ly_numtap, macro,
+//       bindings 
+//            = <&macro_tap &to NUM>
+//            , <&macro_tap &rgb_ug RGB_COLOR_HSB(110,25,100)>
+//            ;
+//  )
+//  ZMK_BEHAVIOR(ly_nav, macro,
+//       bindings 
+//            = <&macro_tap &to NAV>
+//            , <&macro_tap &rgb_ug RGB_COLOR_HSB(170,25,100)>
+//            ;
+//  )
 
- ZMK_BEHAVIOR(ly_num, hold_tap,
-     flavor = "hold-preferred";
-     tapping_term_ms = <200>;
-     quick_tap_ms = <0>;
-     bindings = <&ly_numhld>, <&ly_numtap>;
- )
+//  ZMK_BEHAVIOR(ly_num, hold_tap,
+//      flavor = "hold-preferred";
+//      tapping_term_ms = <200>;
+//      quick_tap_ms = <0>;
+//      bindings = <&ly_numhld>, <&ly_numtap>;
+//  )
 
- ZMK_BEHAVIOR(ly, mod_morph,
-      bindings = <&ly_num 0>, <&ly_nav>;
-      mods = <(MOD_RCTL|MOD_LCTL)>;
- )
+//  ZMK_BEHAVIOR(ly, mod_morph,
+//       bindings = <&ly_num 0>, <&ly_nav>;
+//       mods = <(MOD_RCTL|MOD_LCTL)>;
+//  )
 
 
 /* homerow mods */ // from nodefree config
