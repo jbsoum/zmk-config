@@ -174,10 +174,10 @@ ZMK_BEHAVIOR(ly_num, hold_tap,
      bindings = <&ly_numhld>, <&ly_numtap>;
 )
 
-//  ZMK_BEHAVIOR(ly, mod_morph,
-//       bindings = <&ly_num 0>, <&ly_nav>;
-//       mods = <(MOD_RCTL|MOD_LCTL)>;
-//  )
+ZMK_BEHAVIOR(ly, mod_morph,
+     bindings = <&ly_num 0>, <&ly_nav>;
+     mods = <(MOD_RCTL|MOD_LCTL)>;
+)
 
 
 /* homerow mods */ // from nodefree config
