@@ -79,10 +79,10 @@ ZMK_BEHAVIOR(pow_tap, macro,
 )
 
 //jbsoum add - power key
-// ZMK_BEHAVIOR(pow, mod_morph,
-//      bindings = <&pow_tap>, <&ext_power EP_TOG>;
-//      mods = <(MOD_LSFT|MOD_RSFT)>;
-// )
+ZMK_BEHAVIOR(pow, mod_morph,
+     bindings = <&pow_tap>, <&ext_power EP_TOG>;
+     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
 // ZMK_BEHAVIOR(ht_pow, hold_tap,
 //      tapping_term_ms = <135>;
 //      quick_tap_ms = <0>;
