@@ -62,14 +62,14 @@ ZMK_BEHAVIOR(rh_pht, hold_tap,
      hold-trigger-key-positions = <LM5 LM4 LM3 LM2 LM1 LM0>;    // <---[[left-hand keys]]
 )
 // undo fix for VBA (use Alt, E, R, Enter instead, works for most office products) (jbsoum add)
-// ZMK_BEHAVIOR(alt_redo, macro,
-//      bindings
-//           = <&macro_tap &kp LALT>
-//           , <&macro_tap &kp E>
-//           , <&macro_tap &kp R>
-//           , <&macro_tap &kp ENTER> 
-//           ;
-// )
+ZMK_BEHAVIOR(alt_redo, macro,
+     bindings
+          = <&macro_tap &kp LALT>
+          , <&macro_tap &kp E>
+          , <&macro_tap &kp R>
+          , <&macro_tap &kp ENTER> 
+          ;
+)
 // cycle power and lighting
 // ZMK_BEHAVIOR(pow_tap, macro,
 //      bindings
