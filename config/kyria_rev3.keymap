@@ -174,7 +174,7 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
  )
 
  ZMK_BEHAVIOR(layer, mod_morph,
-      bindings = <&ly_num 0>, <&ly_nav 0>;
+      bindings = <&ly_num 0>, <&ly_nav>;
       mods = <(MOD_RCTL|MOD_LCTL)>;
  )
 
