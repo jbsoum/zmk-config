@@ -170,10 +170,10 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
      flavor = "hold-preferred";
      tapping_term_ms = <200>;
      quick_tap_ms = <0>;
-     bindings = <&ly_def>, <&ly_numtap>;
+     bindings = <&ly_numhld>, <&ly_numtap>;
  )
 
- ZMK_BEHAVIOR(layer, mod_morph,
+ ZMK_BEHAVIOR(ly, mod_morph,
       bindings = <&ly_num 0>, <&ly_nav>;
       mods = <(MOD_RCTL|MOD_LCTL)>;
  )
@@ -223,7 +223,7 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
 //      // // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //      //     /*B_AS(hsh_tld)*/ &none /*AS(Z)*/ &none         /*AS(X)*/ &none         /*AS(C)*/ &none         /*AS(D)*/ &none         /*AS(V)*/ &none         &none         /*B_AS(psr_ins)*/ &none     &kp RGUI      &none         /*AS(K)*/ &none         /*AS(H)*/ &none         /*B_AS(com_qmk)*/ &none /*B_AS(per_exc)*/ &none /*B_AS(fsh_min)*/ &none /*B_AS(amp_at)*/ &none
 //      // // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-//      //                                               /*&layer*/ &none        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         /*B_AS(ent_esc)*/ &none &kp RCTRL     &kp RALT      /*B_AS(tab_cap)*/ &none /*B_AS(bsp_del)*/ &none
+//      //                                               /*&ly*/ &none        &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         /*B_AS(ent_esc)*/ &none &kp RCTRL     &kp RALT      /*B_AS(tab_cap)*/ &none /*B_AS(bsp_del)*/ &none
 //      // //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 // )
 
@@ -232,7 +232,7 @@ ZMK_LAYER(base,
  	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
  	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
  	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
-     //, &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 // ZMK_LAYER(num,
