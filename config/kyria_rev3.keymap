@@ -69,7 +69,7 @@ ZMK_BEHAVIOR(pow_tap, macro,
 
 //jbsoum add - power key
 ZMK_BEHAVIOR(pow, mod_morph,
-     bindings = <&ext_power EP_TOG>, <&pow_tap>;
+     bindings = <&ext_power EP_TOG>, <&pow_tap 0>;
      mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_BEHAVIOR(mc_pow, macro, 
@@ -117,7 +117,7 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
      ZMK_BEHAVIOR(mc_ ## name, macro, bindings = <&macro_press LSHFT>, <&macro_tap tap_kp>, <&macro_release LSHFT>;) \
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
      
-#define B_AS(name) &ht_ ## name 0 0
+#define B_AS(name) &ht_ ## name 0
 
 // custom shift keys - typing layer (jbsoum add)
 J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
