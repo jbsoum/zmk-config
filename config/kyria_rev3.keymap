@@ -77,23 +77,23 @@ ZMK_BEHAVIOR(alt_redo, macro,
 // )
 
 
-ZMK_BEHAVIOR(pow, mod_morph,
-     bindings = <&rgb_ug RGB_TOG>, <&ext_power EP_TOG>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(mc_pow, macro, 
-     bindings 
-          = <&macro_press LSHIFT>
-          , <&rgb_ug RGB_TOG>
-          , <&macro_release LSHIFT>
-          ;
-)
-ZMK_BEHAVIOR(ht_pow, hold_tap,
-     tapping_term_ms = <200>;
-     quick_tap_ms = <0>;
-     flavor = "tap-preferred";
-     bindings = <&mc_pow>, <&pow>;
-)
+// ZMK_BEHAVIOR(pow, mod_morph,
+//      bindings = <&rgb_ug RGB_TOG>, <&ext_power EP_TOG>;
+//      mods = <(MOD_LSFT|MOD_RSFT)>;
+// )
+// ZMK_BEHAVIOR(mc_pow, macro, 
+//      bindings 
+//           = <&macro_press LSHIFT>
+//           , <&rgb_ug RGB_TOG>
+//           , <&macro_release LSHIFT>
+//           ;
+// )
+// ZMK_BEHAVIOR(ht_pow, hold_tap,
+//      tapping_term_ms = <200>;
+//      quick_tap_ms = <0>;
+//      flavor = "tap-preferred";
+//      bindings = <&mc_pow>, <&pow>;
+// )
 
 
 /* jbsoum add - custom autoshift keys*/
