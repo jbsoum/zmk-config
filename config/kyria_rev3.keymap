@@ -269,7 +269,7 @@ ZMK_LAYER(base,
 //                                                    &ly_def       &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE         B_AS(ent_esc) &kp RCTRL     &kp RALT      B_AS(tab_cap) B_AS(bsp_del)
 //      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 //      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-)
+// )
 
 /* default keymap for debugging */
 
