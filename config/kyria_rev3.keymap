@@ -114,7 +114,7 @@ ZMK_BEHAVIOR(ht_pow, hold_tap,
 
 #define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
      ZMK_BEHAVIOR(name, mod_morph, OPTS_B_AS(tap_kp, hold_kp)) \
-     ZMK_BEHAVIOR(mc_ ## name, macro, bindings = <&macro_press LSHIFT(tap_kp)>, <&macro_release LSHIFT(tap_kp)>;) \
+     ZMK_BEHAVIOR(mc_ ## name, macro, bindings = <&macro_press LSHFT>, <&macro_tap tap_kp>, <&macro_release LSHFT>;) \
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
      
 #define B_AS(name) &ht_ ## name 0 0
@@ -232,7 +232,7 @@ ZMK_BEHAVIOR(ly, mod_morph,
 
 ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         B_AS(dll_pct)     //AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
+     //     B_AS(dll_pct)    /AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      B_AS(bsh_und)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //          B_AS(dll_pct) AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
 //      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -271,10 +271,10 @@ ZMK_LAYER(base,
 
 /* default keymap for debugging */
 
-// ZMK_LAYER(base,
-//  	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
-//  	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-//  	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-//  	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
-//      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-// )
+ZMK_LAYER(base,
+ 	B_AS(dll_pct)   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
+ 	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+ 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+ 	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
