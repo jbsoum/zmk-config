@@ -59,12 +59,6 @@ ZMK_BEHAVIOR(alt_redo, macro,
           , <&macro_tap &kp ENTER> 
           ;
 )
-cycle power and lighting
-ZMK_BEHAVIOR(mc_tap_pow, macro,
-     bindings
-          = <&rgb_ug RGB_TOG>
-          ;
-)
 
 /* jbsoum add - power key */ 
 
