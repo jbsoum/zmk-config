@@ -123,8 +123,8 @@ ZMK_BEHAVIOR(alt_redo, macro,
 #define OPTS_MM(name)    bindings = <&ht_ ## name 0 0>, <&mc_hold_ ## name 0>; mods = <(MOD_LSFT|MOD_RSFT)>;
 
 #define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
-     ZMK_BEHAVIOR(mc_hold_ ## name, macro, bindings = <&macro_tap hold_kp>;) \
-     ZMK_BEHAVIOR(mc_tap_ ## name, macro, bindings = <&macro_tap tap_kp>;) \
+     ZMK_BEHAVIOR(mc_hold_ ## name, macro, bindings = <&macro_tap &kp hold_kp>;) \
+     ZMK_BEHAVIOR(mc_tap_ ## name, macro, bindings = <&macro_tap &kp tap_kp>;) \
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name)) \
      ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
      
