@@ -114,12 +114,13 @@ ZMK_BEHAVIOR(pow, mod_morph,
 #define INC_MM_true ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
 #define INC_MM_false
 
+#define MM_STRING(name, bool) INC_MM(bool) 
 
 #define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp, include_mod_morph) \
      ZMK_BEHAVIOR(mc_hold_ ## name, macro, bindings = <&macro_press &kp hold_kp>, <&macro_release &kp hold_kp>;) \
      ZMK_BEHAVIOR(mc_tap_ ## name, macro, bindings = <&macro_tap &kp tap_kp>;) \
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name)) \
-     INC_MM(include_mod_morph) 
+     MM_STRING(name, include_mod_morph) 
      // ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name)) 
 
 // custom shift keys - typing layer (jbsoum add)
