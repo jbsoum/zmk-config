@@ -272,18 +272,18 @@ ZMK_BEHAVIOR(ly_nav, hold_tap,
 
 /* keymap */
 
-// ZMK_LAYER(base,
-//      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-//          &pow          AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      &bsh_und
-//      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//          &dll_pct      AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
-//      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//          &hsh_tld      AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         &kp LSHFT         &kp RGUI      &none         AS(K)         AS(H)         &com_qmk      &per_exc      &fsh_min      &amp_at
-//      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-//                                                    &ly_num       &ly_nav       &kp LALT      &kp LCTRL     &kp SPACE         HT(ent_esc)   &kp RCTRL     &kp RALT      HT(tab_cap)   HT(bsp_del)
-//      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-//      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-// )
+ZMK_LAYER(base,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+         &pow          AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      &bsh_und
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+         &dll_pct      AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         AS(SQT)
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+         &hsh_tld      AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         &kp LSHFT         &kp RGUI      &none         AS(K)         AS(H)         &com_qmk      &per_exc      &fsh_min      &amp_at
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                   &ly_num       &ly_nav       &kp LALT      &kp LCTRL     &kp SPACE         HT(ent_esc)   &kp RCTRL     &kp RALT      HT(tab_cap)   HT(bsp_del)
+     //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
 
 // ZMK_LAYER(num,
 //      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -313,10 +313,10 @@ ZMK_BEHAVIOR(ly_nav, hold_tap,
 
 /* default keymap for debugging */
 
-ZMK_LAYER(base,
- 	&dll_pct   HT(tab_cap) &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
- 	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
- 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
- 	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
-     , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-)
+// ZMK_LAYER(base,
+//  	&dll_pct   HT(tab_cap) &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
+//  	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+//  	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+//  	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+//      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+// )
