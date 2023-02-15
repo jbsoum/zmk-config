@@ -114,7 +114,7 @@ ZMK_BEHAVIOR(pow, mod_morph,
 #define INC_MM_true ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
 #define INC_MM_false
 
-#define MM_STRING(name, bool) INC_MM(bool) 
+#define MM_STRING(name, bool) ZMK_INC_MM_true
 
 #define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp, include_mod_morph) \
      ZMK_BEHAVIOR(mc_hold_ ## name, macro, bindings = <&macro_press &kp hold_kp>, <&macro_release &kp hold_kp>;) \
