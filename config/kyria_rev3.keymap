@@ -110,50 +110,70 @@ ZMK_BEHAVIOR(pow, mod_morph,
 #define OPTS_HT(name)    tapping_term_ms = <200>; quick_tap_ms = <0>; flavor = "tap-preferred"; bindings = <&mc_hold_ ## name>, <&mc_tap_ ## name>;
 #define OPTS_MM(name)    bindings = <&ht_ ## name 0 0>, <&mc_hold_ ## name 0>; mods = <(MOD_LSFT|MOD_RSFT)>;
 
-#define INC_MM(b_const) INC_MM_ ## b_const
-#define INC_MM_true ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
-#define INC_MM_false
+// #define INC_MM(b_const) INC_MM_ ## b_const
+// #define INC_MM_true ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
+// #define INC_MM_false
 
-#define MM_STRING(name, bool) ZMK_INC_MM_true
+// #define MM_STRING(name, bool) ZMK_INC_MM_true
 
-#define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp, include_mod_morph) \
+#define J_BEHAVIOR_CUSTOM_ht(name, tap_kp, hold_kp) \
      ZMK_BEHAVIOR(mc_hold_ ## name, macro, bindings = <&macro_press &kp hold_kp>, <&macro_release &kp hold_kp>;) \
      ZMK_BEHAVIOR(mc_tap_ ## name, macro, bindings = <&macro_tap &kp tap_kp>;) \
-     ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name)) \
-     MM_STRING(name, include_mod_morph) 
-     // ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name)) 
+     ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
+
+#define J_BEHAVIOR_CUSTOM_mm(name) ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
 
 // custom shift keys - typing layer (jbsoum add)
-J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK, true)
-J_BEHAVIOR_CUSTOM_ht(per_exc, PERIOD, EXCL, true)
-J_BEHAVIOR_CUSTOM_ht(amp_at, AMPS, AT, true)
-J_BEHAVIOR_CUSTOM_ht(fsh_min, FSLH, MINUS, true)
-J_BEHAVIOR_CUSTOM_ht(bsh_und, BSLH, UNDER, true)
-J_BEHAVIOR_CUSTOM_ht(hsh_tld, HASH, TILDE, true)
-J_BEHAVIOR_CUSTOM_ht(dll_pct, DOLLAR, PERCENT, true)
+J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
+J_BEHAVIOR_CUSTOM_mm(com_qmk)
+J_BEHAVIOR_CUSTOM_ht(per_exc, PERIOD, EXCL)
+J_BEHAVIOR_CUSTOM_mm(per_exc)
+J_BEHAVIOR_CUSTOM_ht(amp_at, AMPS, AT)
+J_BEHAVIOR_CUSTOM_mm(amp_at)
+J_BEHAVIOR_CUSTOM_ht(fsh_min, FSLH, MINUS)
+J_BEHAVIOR_CUSTOM_mm(fsh_min)
+J_BEHAVIOR_CUSTOM_ht(bsh_und, BSLH, UNDER)
+J_BEHAVIOR_CUSTOM_mm(bsh_und)
+J_BEHAVIOR_CUSTOM_ht(hsh_tld, HASH, TILDE)
+J_BEHAVIOR_CUSTOM_mm(hsh_tld)
+J_BEHAVIOR_CUSTOM_ht(dll_pct, DOLLAR, PERCENT)
+J_BEHAVIOR_CUSTOM_mm(dll_pct)
 
-// custom shift keys - number layer (jbsoum add, true)
-J_BEHAVIOR_CUSTOM_ht(pls_gt, PLUS, GREATER_THAN, true)
-J_BEHAVIOR_CUSTOM_ht(min_lt, MINUS, LESS_THAN, true)
-J_BEHAVIOR_CUSTOM_ht(mlt_pwr, STAR, CARET, true)
-J_BEHAVIOR_CUSTOM_ht(div_dll, FSLH, DOLLAR, true)
-J_BEHAVIOR_CUSTOM_ht(eql_pct, EQUAL, PERCENT, true)
-J_BEHAVIOR_CUSTOM_ht(fsh_dll, FSLH, DOLLAR, true)
-J_BEHAVIOR_CUSTOM_ht(grv_pip, GRAVE, PIPE, true)
+// custom shift keys - number layer (jbsoum add)
+J_BEHAVIOR_CUSTOM_ht(pls_gt, PLUS, GREATER_THAN)
+J_BEHAVIOR_CUSTOM_mm(pls_gt)
+J_BEHAVIOR_CUSTOM_ht(min_lt, MINUS, LESS_THAN)
+J_BEHAVIOR_CUSTOM_mm(min_lt)
+J_BEHAVIOR_CUSTOM_ht(mlt_pwr, STAR, CARET)
+J_BEHAVIOR_CUSTOM_mm(mlt_pwr)
+J_BEHAVIOR_CUSTOM_ht(div_dll, FSLH, DOLLAR)
+J_BEHAVIOR_CUSTOM_mm(div_dll)
+J_BEHAVIOR_CUSTOM_ht(eql_pct, EQUAL, PERCENT)
+J_BEHAVIOR_CUSTOM_mm(eql_pct)
+J_BEHAVIOR_CUSTOM_ht(fsh_dll, FSLH, DOLLAR)
+J_BEHAVIOR_CUSTOM_mm(fsh_dll)
+J_BEHAVIOR_CUSTOM_ht(grv_pip, GRAVE, PIPE)
+J_BEHAVIOR_CUSTOM_mm(grv_pip)
 
-// custom shift keys - brackets (jbsoum add, true)
-J_BEHAVIOR_CUSTOM_ht(fsh_bsh, FSLH, BSLH, true)
-J_BEHAVIOR_CUSTOM_ht(lpr_rpr, LPAR, RPAR, true)
-J_BEHAVIOR_CUSTOM_ht(lbt_rbt, LBKT, RBKT, true)
-J_BEHAVIOR_CUSTOM_ht(lbc_rbc, LBRC, RBRC, true)
-J_BEHAVIOR_CUSTOM_ht(lt_gt, LT, GT, true)
+// custom shift keys - brackets (jbsoum add)
+J_BEHAVIOR_CUSTOM_ht(fsh_bsh, FSLH, BSLH)
+J_BEHAVIOR_CUSTOM_mm(fsh_bsh)
+J_BEHAVIOR_CUSTOM_ht(lpr_rpr, LPAR, RPAR)
+J_BEHAVIOR_CUSTOM_mm(lpr_rpr)
+J_BEHAVIOR_CUSTOM_ht(lbt_rbt, LBKT, RBKT)
+J_BEHAVIOR_CUSTOM_mm(lbt_rbt)
+J_BEHAVIOR_CUSTOM_ht(lbc_rbc, LBRC, RBRC)
+J_BEHAVIOR_CUSTOM_mm(lbc_rbc)
+J_BEHAVIOR_CUSTOM_ht(lt_gt, LT, GT)
+J_BEHAVIOR_CUSTOM_mm(lt_gt)
 
-// custom shift keys - actions (jbsoum add, true)
-J_BEHAVIOR_CUSTOM_ht(hme_end, HOME, END, true)
-J_BEHAVIOR_CUSTOM_ht(bsp_del, BACKSPACE, DELETE, false)
-J_BEHAVIOR_CUSTOM_ht(psr_ins, PRINTSCREEN, INSERT, false)
-J_BEHAVIOR_CUSTOM_ht(tab_cap, TAB, CAPSLOCK, false)
-J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, ESC, false)
+// custom shift keys - actions (jbsoum add)
+J_BEHAVIOR_CUSTOM_ht(hme_end, HOME, END)
+J_BEHAVIOR_CUSTOM_ht(bsp_del, BACKSPACE, DELETE)
+J_BEHAVIOR_CUSTOM_ht(psr_ins, PRINTSCREEN, INSERT)
+J_BEHAVIOR_CUSTOM_mm(psr_ins)
+J_BEHAVIOR_CUSTOM_ht(tab_cap, TAB, CAPSLOCK)
+J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, ESC)
 
 // layer buttons (jbsoum add)
 ZMK_BEHAVIOR(ly_def, macro,
