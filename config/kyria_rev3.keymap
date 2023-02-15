@@ -122,7 +122,8 @@ ZMK_BEHAVIOR(pow, mod_morph,
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
 
 #define J_BEHAVIOR_CUSTOM_mm(name) ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
-#define HT(name) &ht_ ## name 0 0
+
+#define HT(name) &ht_ ## name 0
 
 // custom shift keys - typing layer (jbsoum add)
 J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
