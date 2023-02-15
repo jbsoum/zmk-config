@@ -122,6 +122,7 @@ ZMK_BEHAVIOR(pow, mod_morph,
      ZMK_BEHAVIOR(ht_ ## name, hold_tap, OPTS_HT(name))
 
 #define J_BEHAVIOR_CUSTOM_mm(name) ZMK_BEHAVIOR(name, mod_morph, OPTS_MM(name))
+#define HT(name) &ht_ ## name 0 0
 
 // custom shift keys - typing layer (jbsoum add)
 J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
@@ -278,7 +279,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          &hsh_tld      AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         &kp LSHFT         &kp RGUI      &none         AS(K)         AS(H)         &com_qmk      &per_exc      &fsh_min      &amp_at
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_num       &ly_nav       &kp LALT      &kp LCTRL     &kp SPACE         &ent_esc      &kp RCTRL     &kp RALT      &tab_cap      &bsp_del
+                                                   &ly_num       &ly_nav       &kp LALT      &kp LCTRL     &kp SPACE         HT(ent_esc)   &kp RCTRL     &kp RALT      HT(tab_cap)   HT(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
@@ -291,7 +292,7 @@ ZMK_LAYER(num,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          &hsh_tld      &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &none         &kp LSHFT         &kp RGUI      &none         &kp K         &kp 1         &kp 2         &kp 3         &min_lt       &kp PERIOD
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_def       &ly_nav       &kp LALT      &kp LCTRL     &kp SPACE         &ent_esc      &kp RCTRL     &kp RALT      &tab_cap      &bsp_del
+                                                   &ly_def       &ly_nav       &kp LALT      &kp LCTRL     &kp SPACE         HT(ent_esc)   &kp RCTRL     &kp RALT      HT(tab_cap)   HT(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
@@ -304,7 +305,7 @@ ZMK_LAYER(nav,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          &none         &none         &none         &kp S         &kp Z         &kp X         &none         &kp LSHFT         &kp RGUI      &none         &kp C         &kp V         &kp DOWN      &none         &none         &none 
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &ly_def       &none         &kp LALT      &kp LCTRL     &kp SPACE         &ent_esc      &kp RCTRL     &kp RALT      &tab_cap      &bsp_del
+                                                   &ly_def       &none         &kp LALT      &kp LCTRL     &kp SPACE         HT(ent_esc)   &kp RCTRL     &kp RALT      HT(tab_cap)   HT(bsp_del)
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
