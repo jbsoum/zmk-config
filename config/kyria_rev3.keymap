@@ -125,6 +125,7 @@ ZMK_BEHAVIOR(pow, mod_morph,
 
 #define HT(name) &ht_ ## name 0 0
 
+
 // custom shift keys - typing layer (jbsoum add)
 J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
 J_BEHAVIOR_CUSTOM_mm(com_qmk)
@@ -175,6 +176,7 @@ J_BEHAVIOR_CUSTOM_ht(bsp_del, BACKSPACE, DELETE)
 J_BEHAVIOR_CUSTOM_ht(psr_ins, PRINTSCREEN, INSERT)
 J_BEHAVIOR_CUSTOM_mm(psr_ins)
 J_BEHAVIOR_CUSTOM_ht(tab_cap, TAB, CAPSLOCK)
+J_BEHAVIOR_CUSTOM_mm(tab_cap)
 J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, ESC)
 
 // layer buttons (jbsoum add)
@@ -276,9 +278,9 @@ ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
          &pow          AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      &psr_ins
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         HT(tab_cap)   AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         &kp ENTER
+         &tab_cap      AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         &kp ENTER
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LGUI      AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &none         &kp LSHFT         &kp RSHFT     &none         AS(K)         AS(H)         &com_qmk      &per_exc      AS(SQT)       &kp ESC
+         &kp LGUI      AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &kp C_PP      &kp LSHFT         &kp RSHFT     &none         AS(K)         AS(H)         &com_qmk      &per_exc      AS(SQT)       &kp ESC
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                    &ly_nav 0 0   &ly_num 0 0   &kp SPACE     &kp LCTRL     &kp LALT          &kp RALT      &kp RCTRL     &kp SPACE     &kp BSPC      &kp DEL       
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
@@ -289,9 +291,9 @@ ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
          &pow          &hsh_tld      &amp_at       AS(MINUS)     &dll_pct      &grv_pip                                                                  &mlt_pwr      &kp N7        &kp N8        &kp N9        &kp N0        &psr_ins
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         HT(tab_cap)   &lt_gt        &lbc_rbc      &lbt_rbt      &lpr_rpr      &fsh_bsh                                                                  &pls_gt       &kp N4        &kp N5        &kp N6        &kp EQUAL     &kp ENTER
+         &tab_cap      &lt_gt        &lbc_rbc      &lbt_rbt      &lpr_rpr      &fsh_bsh                                                                  &pls_gt       &kp N4        &kp N5        &kp N6        &kp EQUAL     &kp ENTER
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LGUI      &none         &none         &none         &none         &none         &none         &kp LSHFT         &kp RSHFT     &none         &min_lt       &kp N1        &kp N2        &kp N3        &kp PERIOD    &kp ESC
+         &kp LGUI      &none         &none         &none         &none         &none         &kp C_PP      &kp LSHFT         &kp RSHFT     &none         &min_lt       &kp N1        &kp N2        &kp N3        &kp PERIOD    &kp ESC
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                    &ly_nav 0 0   &ly_def       &kp SPACE     &kp LCTRL     &kp LALT          &kp RALT      &kp RCTRL     &kp SPACE     &kp BSPC      &kp DEL  
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
@@ -302,9 +304,9 @@ ZMK_LAYER(nav,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
          &pow          &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &psr_ins 
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-         HT(tab_cap)   &kp Q         &kp A         &kp W         &kp D         &kp R                                                                     &kp PG_UP     &kp LEFT      &kp UP        &kp RIGHT     &kp F11       &kp ENTER 
+         &tab_cap      &kp Q         &kp A         &kp W         &kp D         &kp R                                                                     &kp PG_UP     &kp LEFT      &kp UP        &kp RIGHT     &kp F11       &kp ENTER 
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LGUI      &kp Z         &kp X         &kp S         &kp C         &kp V         &none         &kp LSHFT         &kp RSHFT     &none         &kp PG_DN     &kp HOME      &kp DOWN      &kp END       &kp F12       &kp ESC 
+         &kp LGUI      &kp Z         &kp X         &kp S         &kp C         &kp V         &kp C_PP      &kp LSHFT         &kp RSHFT     &none         &kp PG_DN     &kp HOME      &kp DOWN      &kp END       &kp F12       &kp ESC 
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                    &ly_num 0 0   &ly_def       &kp SPACE     &kp LCTRL     &kp LALT          &kp RALT      &kp RCTRL     &kp SPACE     &kp BSPC      &kp DEL  
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
