@@ -235,7 +235,7 @@ J_BEHAVIOR_CUSTOM_ht(ent_esc, ENTER, ESC)
 //    mods = <(MOD_LSFT|MOD_RSFT)>;
 //)
 
-windows sleep macro
+// windows sleep macro
 ZMK_BEHAVIOR(win_sleep, macro,
     wait-ms = <100>;
     tap-ms = <5>;
