@@ -41,7 +41,7 @@ ZMK_BEHAVIOR(as, hold_tap,
 //jbsoum add - momentary layer when held, toggle layer when tapped, from here: https://zmk.dev/docs/behaviors/hold-tap
 ZMK_BEHAVIOR(mo_tog, hold_tap,
      flavor = "hold-preferred";
-     tapping-term-ms = <150>;
+     tapping-term-ms = <200>;
      bindings = <&mo>, <&tog>;
 )
 //jbsoum add - crosshand only modifiers, from here: https://zmk.dev/docs/behaviors/hold-tap
@@ -279,7 +279,7 @@ ZMK_LAYER(num,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          &kp LGUI      &none         &none         &none         &none         &none         &kp C_PP      MO_TOG(NAV)       &kp DEL       &kp CAPSLOCK  &min_lt       &kp N1        &kp N2        &kp N3        &kp PERIOD    &kp ESC
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE     MO_TOG(DEF)       &kp BSPC      &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT    
+                                                   &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE     &tog DEF          &kp BSPC      &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT    
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
@@ -292,7 +292,7 @@ ZMK_LAYER(nav,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          &kp LGUI      &kp Z         &kp X         &kp S         &kp C         &kp V         &kp C_PP      MO_TOG(NUM)       &kp DEL       &kp CAPSLOCK  &kp PG_DN     &kp HOME      &kp DOWN      &kp END       &kp F12       &kp ESC 
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE     MO_TOG(DEF)       &kp BSPC      &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT    
+                                                   &kp LSHFT     &kp LALT      &kp LCTRL     &kp SPACE     &tog DEF          &kp BSPC      &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT    
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
