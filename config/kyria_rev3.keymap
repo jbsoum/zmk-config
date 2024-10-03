@@ -107,6 +107,8 @@ ZMK_BEHAVIOR(pow, mod_morph,
 
 
 // custom shift keys - typing layer (jbsoum add)
+J_BEHAVIOR_CUSTOM_ht(mbl_mbr, LCLK, RCLK)
+J_BEHAVIOR_CUSTOM_mm(com_qmk)
 J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
 J_BEHAVIOR_CUSTOM_mm(com_qmk)
 J_BEHAVIOR_CUSTOM_ht(per_exc, PERIOD, EXCL)
@@ -137,6 +139,8 @@ J_BEHAVIOR_CUSTOM_ht(fsh_dll, FSLH, DOLLAR)
 J_BEHAVIOR_CUSTOM_mm(fsh_dll)
 J_BEHAVIOR_CUSTOM_ht(grv_pip, GRAVE, PIPE)
 J_BEHAVIOR_CUSTOM_mm(grv_pip)
+J_BEHAVIOR_CUSTOM_ht(per_com, PERIOD, COMMA)
+J_BEHAVIOR_CUSTOM_mm(per_com)
 
 // custom shift keys - brackets (jbsoum add)
 J_BEHAVIOR_CUSTOM_ht(fsh_bsh, FSLH, BSLH)
@@ -255,44 +259,44 @@ ZMK_COMBO(combo_sleep,  &win_sleep, LB5 LM2, ALL)  // custom sleep macro, active
 ZMK_COMBO(combo_copy,   &kp LC(C),  LB2 LH4, ALL)  // Ctrl + C, active on all layers
 ZMK_COMBO(combo_paste,  &kp LC(V),  LB0 LH4, ALL)  // Ctrl + V, active on all layers
 
-
+// #define MS &mo_tog LCLK RCLK
 /* keymap */
 
 ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         MO_TOG(NAV)   AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      MO_TOG(NUM)
+         MO_TOG(NAV)   AS(Q)         AS(W)         AS(F)         AS(P)         AS(B)                                                                     AS(J)         AS(L)         AS(U)         AS(Y)         AS(SEMI)      &kp DEL
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LALT      AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         &kp RALT
+         &kp LALT      AS(A)         AS(R)         AS(S)         AS(T)         AS(G)                                                                     AS(M)         AS(N)         AS(E)         AS(I)         AS(O)         &kp BSPC 
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LSHFT     AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &kp C_PP      &kp CAPSLOCK      &kp ESC       &psr_ins      AS(K)         AS(H)         &com_qmk      &per_exc      AS(SQT)       &kp RSHFT
+         &kp LSHFT     AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)         &kp C_PP      &kp CAPSLOCK      &kp ESC       &psr_ins      AS(K)         AS(H)         &com_qmk      &per_exc      AS(SQT)       &kp RGUI  
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LGUI      &kp TAB       &kp LCTRL     &kp SPACE     MO_TOG(NUM)       &kp ENTER     &kp SPACE     &kp RCTRL     &kp BSPC      &kp DEL   
+                                                   &mbl_mbr      &kp TAB       &kp LCTRL     &kp SPACE     MO_TOG(NUM)       &kp ENTER     &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT   
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         MO_TOG(NAV)   &hsh_tld      &amp_at       AS(MINUS)     &dll_pct      &grv_pip                                                                  &mlt_pwr      &kp N7        &kp N8        &kp N9        &kp N0        MO_TOG(DEF)
+         MO_TOG(NAV)   &hsh_tld      &amp_at       AS(MINUS)     &dll_pct      &grv_pip                                                                  &mlt_pwr      &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LALT      &lt_gt        &lbc_rbc      &lbt_rbt      &lpr_rpr      &fsh_bsh                                                                  &pls_gt       &kp N4        &kp N5        &kp N6        &kp EQUAL     &kp RALT
+         &kp LALT      &lt_gt        &lbc_rbc      &lbt_rbt      &lpr_rpr      &fsh_bsh                                                                  &pls_gt       &kp N4        &kp N5        &kp N6        &kp EQUAL     &kp BSPC 
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LSHFT     &none         &none         &none         &none         &none         &kp C_PP      &kp CAPSLOCK      &kp ESC       &psr_ins      &min_lt       &kp N1        &kp N2        &kp N3        &kp PERIOD    &kp RSHFT
+         &kp LSHFT     &none         &none         &none         &none         &none         &kp C_PP      &kp CAPSLOCK      &kp ESC       &psr_ins      &min_lt       &kp N1        &kp N2        &kp N3        &per_com      &kp RGUI  
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LGUI      &kp TAB       &kp LCTRL     &kp SPACE     MO_TOG(DEF)       &kp ENTER     &kp SPACE     &kp RCTRL     &kp BSPC      &kp DEL   
+                                                   &kp LCLK      &kp TAB       &kp LCTRL     &kp SPACE     MO_TOG(DEF)       &kp ENTER     &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT  
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_NEXT C_PREV &inc_dec_kp PG_UP PG_DN
 )
 
 ZMK_LAYER(nav,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                           ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         MO_TOG(DEF)   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       MO_TOG(NUM)
+         MO_TOG(DEF)   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp DEL
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                           ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-         &kp LALT      &kp Q         &kp A         &kp W         &kp D         &kp R                                                                     &kp PG_UP     &kp LEFT      &kp UP        &kp RIGHT     &kp F11       &kp RALT
+         &kp LALT      &kp Q         &kp A         &kp W         &kp D         &kp R                                                                     &kp PG_UP     &kp LEFT      &kp UP        &kp RIGHT     &kp F11       &kp BSPC 
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LSHFT     &kp Z         &kp X         &kp S         &kp C         &kp V         &kp C_PP      &kp CAPSLOCK      &kp ESC       &psr_ins      &kp PG_DN     &kp HOME      &kp DOWN      &kp END       &kp F12       &kp RSHFT
+         &kp LSHFT     &kp Z         &kp X         &kp S         &kp C         &kp V         &kp C_PP      &kp CAPSLOCK      &kp ESC       &psr_ins      &kp PG_DN     &kp HOME      &kp DOWN      &kp END       &kp F12       &kp RGUI  
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LGUI      &kp TAB       &kp LCTRL     &kp SPACE     MO_TOG(NUM)       &kp ENTER     &kp SPACE     &kp RCTRL     &kp BSPC      &kp DEL  
+                                                   &kp LCLK      &kp TAB       &kp LCTRL     &kp SPACE     MO_TOG(NUM)       &kp ENTER     &kp SPACE     &kp RCTRL     &kp RALT      &kp RSHFT
      //                                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
      , &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
