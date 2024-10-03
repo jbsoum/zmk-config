@@ -108,6 +108,7 @@ ZMK_BEHAVIOR(pow, mod_morph,
 
 // custom shift keys - typing layer (jbsoum add)
 J_BEHAVIOR_CUSTOM_ht(mbl_mbr, LCLK, RCLK)
+J_BEHAVIOR_CUSTOM_mm(mbl_mbr)
 J_BEHAVIOR_CUSTOM_mm(com_qmk)
 J_BEHAVIOR_CUSTOM_ht(com_qmk, COMMA, QMARK)
 J_BEHAVIOR_CUSTOM_mm(com_qmk)
