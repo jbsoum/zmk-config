@@ -19,8 +19,16 @@
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
-#include "../zmk-nodefree-config/helper.h"
-#include "../config/keypos_kyria_rev3.h"
+// #include "../zmk-nodefree-config/helper.h"
+// #include "../config/keypos_kyria_rev3.h"
+
+#include "zmk-helpers/helper.h"
+
+// Source desired key-position labels
+#include "zmk-helpers/key-labels/kyria.h"
+
+// Source unicode-chars for desired languages
+#include "zmk-helpers/unicode-chars/german.dtsi"
 
 /* layer and key shortcuts */
 
